@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ar.com.augusto</groupId>
+  <artifactId>007.Using.SLF4J</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- 
+  
+  	*SLF4J es mas eficiente que commons logging en tiempo de ejecucion, ya que se liga durante la compilacion.
+  	*Esto implica que se debe ser mas explicito acerca de que se quiere que ocurra en tiempo de ejecucion, y declarar y configurar de forma acorde.
+  	*Para utilizar SLF4J en Spring, solo necesitamos reemplazar la dependencia de commons logging por SLF4J JLC bridge.
+  	*Para evitar generar tantas dependencias, una buena alternativa es utilizar Logback.
+  	*Logback implementa SLF4J directamente.
+  
+   -->
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context</artifactId>
+  		<version>4.0.2.RELEASE</version>
+  		<scope>runtime</scope>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>commons-logging</groupId>
+  				<artifactId>commons-logging</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>jcl-over-slf4j</artifactId>
+  		<version>1.5.8</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-api</artifactId>
+  		<version>1.5.8</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-log4j12</artifactId>
+  		<version>1.5.8</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>1.2.14</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

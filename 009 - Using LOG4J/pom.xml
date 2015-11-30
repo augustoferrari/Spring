@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ar.com.augusto</groupId>
+  <artifactId>009.Using.LOG4J</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- 
+  
+  	*Spring provee algunas utilidades para configurar e inicializar LOG4J.
+  	*Para utilizar LOG4J con la dependencia JCL por defecto solo nececitamos agregar LOG4J al classpath y proveerle un archico de configuracion(log4j.properties o log4j.xml).
+  	*Ejemplo de log4j.properties para loguear en consola:
+  	
+  		log4j.rootCategory=INFO, stdout
+  		
+  		log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+  		log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+  		log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %t %c{2}:%L - %m%n 
+  
+   -->
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-core</artifactId>
+  		<version>4.0.2.RELEASE</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>1.2.14</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
